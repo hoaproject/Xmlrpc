@@ -67,8 +67,8 @@ class Client
     /**
      * Constructor.
      *
-     * @param   \Hoa\Socket\Client  $client    Client.
-     * @param   string              $script    Script.
+     * @param   string|\Hoa\Socket\Client  $client    Client.
+     * @param   string                     $script    Script.
      * @return  void
      * @throws  \Hoa\Socket\Exception
      */
