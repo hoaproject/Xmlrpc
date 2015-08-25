@@ -72,8 +72,16 @@ class Client
      * @return  void
      * @throws  \Hoa\Socket\Exception
      */
-    public function __construct(Socket\Client $client, $script)
+    public function __construct($client, $script)
     {
+        if( is_string($client) ) {
+            $client = new Socket\Client($client);
+        } elseif( !($client instanceof Socket\Client) ) {
+            throw new Exception(
+                'Client must be a valid Hoa\Socket\Client instance'
+            );
+        }
+
         $this->_client = $client;
         $this->_script = $script;
         $client->connect();
